@@ -21,56 +21,59 @@ class _GreatJoinWidgetState extends State<GreatJoinWidget> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+        flex: Responsive.isDesktop(context) ? 1 : 2,
         child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
 
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), gradient: _bgGradient),
+          decoration: BoxDecoration(
+              border: Border.all(color: Color(0xff252424)),
+              borderRadius: BorderRadius.circular(20),
+              gradient: _bgGradient),
 
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GradientText(
-                  text: Text(
-                    "Join Us And Simplify Your Trading",
-                    textAlign: TextAlign.center,
-                    style: Responsive.getTextStyle(context,
-                        textColor: Colors.white,
-                        weight: FontWeight.w600,
-                        dSize: 31,
-                        mSize: 30),
-                  ),
-                  gradient: const LinearGradient(colors: [
-                    Color(0xffFFFFFF),
-                    Color(0xffA7EAE5),
-                    Color(0xffFFFFFF)
-                  ]),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GradientText(
+                      text: Text(
+                        "Join Us And Simplify Your Trading",
+                        textAlign: TextAlign.center,
+                        style: Responsive.getTextStyle(context,
+                            textColor: Colors.white,
+                            weight: FontWeight.w600,
+                            dSize: 31,
+                            mSize: 30),
+                      ),
+                      gradient: const LinearGradient(colors: [
+                        Color(0xffFFFFFF),
+                        Color(0xffA7EAE5),
+                        Color(0xffFFFFFF)
+                      ]),
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    CustomOutlineButton(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 25),
+                      onPressed: () {},
+                      child: Text(
+                        "Get started",
+                        style: Responsive.getTextStyle(context,
+                            textColor: Colors.white,
+                            weight: FontWeight.w600,
+                            dSize: 15),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 50,
-                ),
-                CustomOutlineButton(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-                  onPressed: () {},
-                  child: Text(
-                    "Get started",
-                    style: Responsive.getTextStyle(context,
-                        textColor: Colors.white,
-                        weight: FontWeight.w600,
-                        dSize: 15),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
-      // height: 200,
-    ));
+          // height: 200,
+        ));
   }
 }

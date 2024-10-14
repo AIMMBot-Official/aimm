@@ -1,9 +1,6 @@
-import 'package:aimm/utils/constants.dart';
 import 'package:aimm/utils/responsive.dart';
 import 'package:aimm/views/home/great_frame/great_detail_widget.dart';
 import 'package:aimm/views/home/great_frame/great_join_widget.dart';
-import 'package:aimm/widgets/gradient_button.dart';
-import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,144 +15,67 @@ class _GreatFrameState extends State<GreatFrame> {
   String title_1 = "What makes us ";
   String title_2 = "Great";
   String infoText =
-      "We deliver AI-powered trading that combines real-time data, automated strategies, and intelligent risk management. Our platform ensures fast execution, security, and optimized performance, making it easy to achieve your financial goals.";
+      "We deliver AI-powered volume generation that combines real-time data, automated strategies, and intelligent risk management. Our platform ensures fast execution, security, and optimized performance, making it easy to achieve your financial goals.";
+  late List<GreatDetailWidget> widgetList;
+
+  @override
+  void initState() {
+    widgetList = [
+      const GreatDetailWidget(
+          title: "Dynamic Token Price",
+          data:
+              "Implement adaptive strategies that automatically adjust your asset allocation based on market conditions and trends."),
+      const GreatDetailWidget(
+        title: "Intelligent Chart Management ",
+        data:
+            "Utilize AI algorithms to optimize your investment portfolio, balancing risk and reward for sustainable growth.",
+        path: "assets/images/intelligent_chart_management.png",
+      ),
+      const GreatDetailWidget(
+        title: "Secure & Reliable",
+        data:
+            "Benefit from advanced security and reliable execution, ensuring your investments are always protected.",
+        path: "assets/images/secure_reliable.png",
+      ),
+      const GreatDetailWidget(
+          title: "Extended Support",
+          data:
+              "Our team is building additional features to maintain support levels, range, and generate profits with our bot. Early users will have access to these services at a discount!")
+    ];
+    super.initState();
+  }
+
+  _getPadding() {
+    if (Responsive.isDesktop(context)) {
+      return const EdgeInsets.all(75);
+    }
+    return const EdgeInsets.symmetric(horizontal: 20, vertical: 75);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: _getPadding(),
       child: Column(
         children: [
           Center(
             child: dataWidget(),
           ),
-          detailsGrid(),
+          const SizedBox(
+            height: 70,
+          ),
+          Responsive(
+              mobile: _detailsGridMobile(), desktop: _detailsGridDesktop()),
         ],
       ),
     );
-  }
-
-  Widget detailsGrid() {
-    return Container(
-      padding: EdgeInsets.all(70),
-      height: MediaQuery.of(context).size.height,
-      constraints: BoxConstraints(maxHeight: 700),
-      child: Row(
-        children: [
-          Expanded(
-              child: Column(
-            children: [
-              GreatDetailWidget(
-                  title: "Dynamic Token Price",
-                  data:
-                      "Implement adaptive strategies that automatically adjust your asset allocation based on market conditions and trends."),
-              const SizedBox(
-                height: 35,
-              ),
-              GreatDetailWidget(
-                title: "Intelligent Chart Management ",
-                data:
-                    "Utilize AI algorithms to optimize your investment portfolio, balancing risk and reward for sustainable growth.",
-                path: "assets/images/intelligent_chart_management.png",
-              ),
-            ],
-          )),
-          const SizedBox(
-            width: 35,
-          ),
-          GreatJoinWidget(),
-          const SizedBox(
-            width: 35,
-          ),
-          Expanded(
-              child: Column(
-            children: [
-              GreatDetailWidget(
-                title: "Secure & Reliable",
-                data:
-                    "Benefit from advanced security and reliable execution, ensuring your investments are always protected.",
-                path: "assets/images/secure_reliable.png",
-              ),
-              SizedBox(
-                height: 35,
-              ),
-              GreatDetailWidget(
-                  title: "Extended Support",
-                  data:
-                      "Our team is building additional features to maintain support levels, range, and generate profits with our bot. Early users will have access to these services at a discount!"),
-            ],
-          ))
-        ],
-      ),
-    );
-  }
-
-  detailGridItem() {
-    return Expanded(
-        child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.red,
-      ),
-
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: _textWidget("String title",
-                "Implement adaptive strategies that automatically adjust your asset allocation based on market conditions and trends."),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                  bottomRight:
-                      Radius.circular(20.0)), // Adjust the radius as needed
-              child: Image.asset(
-                "assets/images/secure_reliable.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-          )
-        ],
-      ),
-      // height: 200,
-    ));
-  }
-
-  _textWidget(String title, String data) {
-    return Container(
-        padding: EdgeInsets.only(left: 15, top: 15, right: 80),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: Responsive.getTextStyle(context,
-                  textColor: Colors.white,
-                  weight: FontWeight.w600,
-                  dSize: 19,
-                  mSize: 19),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              data,
-              style: Responsive.getTextStyle(context,
-                  textColor: Colors.white,
-                  weight: FontWeight.w500,
-                  dSize: 13,
-                  mSize: 13),
-            )
-          ],
-        ));
   }
 
   Widget dataWidget() {
     return Container(
       constraints: const BoxConstraints(maxWidth: 750),
       child: Column(
-        children: [_titleWidget(), const SizedBox(height: 10), _infoWidget()],
+        children: [_titleWidget(), const SizedBox(height: 15), _infoWidget()],
       ),
     );
   }
@@ -186,5 +106,68 @@ class _GreatFrameState extends State<GreatFrame> {
       style: Responsive.getTextStyle(context,
           dSize: 16, mSize: 14, weight: FontWeight.w500),
     );
+  }
+
+  _detailsGridDesktop() {
+    return Container(
+        height: MediaQuery.of(context).size.height * 0.8,
+        constraints: const BoxConstraints(maxHeight: 700),
+        child: Row(
+          children: [
+            Expanded(
+                child: Column(
+              children: [
+                widgetList[0],
+                const SizedBox(
+                  height: 35,
+                ),
+                widgetList[1],
+              ],
+            )),
+            const SizedBox(
+              width: 35,
+            ),
+            const GreatJoinWidget(),
+            const SizedBox(
+              width: 35,
+            ),
+            Expanded(
+                child: Column(
+              children: [
+                widgetList[2],
+                const SizedBox(
+                  height: 35,
+                ),
+                widgetList[3],
+              ],
+            ))
+          ],
+        ));
+  }
+
+  _detailsGridMobile() {
+    return Container(
+        height: 1800,
+        child: Column(
+          children: [
+            widgetList[0],
+            const SizedBox(
+              height: 35,
+            ),
+            widgetList[1],
+            const SizedBox(
+              height: 35,
+            ),
+            const GreatJoinWidget(),
+            const SizedBox(
+              height: 35,
+            ),
+            widgetList[2],
+            const SizedBox(
+              height: 35,
+            ),
+            widgetList[3],
+          ],
+        ));
   }
 }

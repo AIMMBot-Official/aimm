@@ -10,18 +10,44 @@ class CustomFooter extends StatefulWidget {
 }
 
 class _CustomFooterState extends State<CustomFooter> {
+  _getPadding() {
+    if (Responsive.isDesktop(context)) {
+      return const EdgeInsets.all(75);
+    }
+    return const EdgeInsets.symmetric(horizontal: 20, vertical: 30);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.7,
-      padding: EdgeInsets.all(75),
-      child: Flex(
-        direction: Axis.horizontal,
-        children: [
-          Expanded(flex: 1, child: _infoWidget()),
-          Expanded(flex: 1, child: _linksWidget())
-        ],
-      ),
+        height: MediaQuery.of(context).size.height * 0.75,
+        constraints: const BoxConstraints(maxHeight: 500),
+        padding: _getPadding(),
+        child: Responsive(mobile: _footerMobile(), desktop: _footerDesktop()));
+  }
+
+  _footerDesktop() {
+    return Flex(
+      direction: Axis.horizontal,
+      children: [
+        Expanded(flex: 1, child: _infoWidget()),
+        Expanded(flex: 1, child: _linksWidget())
+      ],
+    );
+  }
+
+  _footerMobile() {
+    return Flex(
+      direction: Axis.vertical,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        _title(),
+        const SizedBox(height: 35),
+        _linksWidget(),
+        const SizedBox(height: 35),
+        _rights()
+      ],
     );
   }
 
@@ -29,31 +55,37 @@ class _CustomFooterState extends State<CustomFooter> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Seamless Liquidity, Smarter Trading",
-          style: Responsive.getTextStyle(context,
-              weight: FontWeight.w400,
-              textColor: Colors.white,
-              dSize: 14,
-              mSize: 14),
-        ),
-        Text(
-          "AIMM @ 2024 | All rights reserved",
-          style: Responsive.getTextStyle(context,
-              weight: FontWeight.w400,
-              textColor: Colors.white,
-              dSize: 14,
-              mSize: 14),
-        )
-      ],
+      children: [_title(), _rights()],
+    );
+  }
+
+  _title() {
+    return Text(
+      "Seamless Liquidity, Smarter Trading",
+      style: Responsive.getTextStyle(context,
+          weight: FontWeight.w400,
+          textColor: Colors.white,
+          dSize: 14,
+          mSize: 14),
+    );
+  }
+
+  _rights() {
+    return Text(
+      "AIMM @ 2024 | All rights reserved",
+      style: Responsive.getTextStyle(context,
+          weight: FontWeight.w400,
+          textColor: Colors.white,
+          dSize: 14,
+          mSize: 14),
     );
   }
 
   _linksWidget() {
     return Flex(
       direction: Axis.horizontal,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         footerMenuColumn("Contact", [
           MenuItem(name: "X(Twitter)", onTap: () {}),
@@ -88,7 +120,7 @@ class _CustomFooterState extends State<CustomFooter> {
               mSize: 16),
         ),
         SizedBox(
-          height: 15,
+          height: 20,
         ),
         for (int i = 0; i < menuItems.length; i++)
           Padding(

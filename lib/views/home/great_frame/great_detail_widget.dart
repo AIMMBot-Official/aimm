@@ -26,7 +26,9 @@ class _GreatDetailWidgetState extends State<GreatDetailWidget> {
     return Expanded(
         child: Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), gradient: _bgGradient),
+          border: Border.all(color: Color(0xff252424)),
+          borderRadius: BorderRadius.circular(20),
+          gradient: _bgGradient),
 
       child: Stack(
         children: [

@@ -6,6 +6,8 @@ import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../widgets/FadeInListWidget.dart';
+
 class EasyFrame extends StatefulWidget {
   const EasyFrame({super.key});
 
@@ -17,9 +19,9 @@ class _EasyFrameState extends State<EasyFrame> {
   String title_1 = "Volume Made ";
   String title_2 = "Easy";
   String infoText =
-      "Our AI-powered platform simplifies trading by automating complex decisions. Let smart algorithms handle the work, delivering effortless and consistent results.";
+      "Our AI-powered platform simplifies volume by automating complex human-like decisions. Let our smart algorithms handle the work, delivering effortless and consistent results.";
 
-  List<EasyDetailWidget> widgetList = [];
+  late List<EasyDetailWidget> widgetList;
 
   @override
   void initState() {
@@ -27,21 +29,21 @@ class _EasyFrameState extends State<EasyFrame> {
     widgetList = [
       const EasyDetailWidget(
         image: "assets/images/advance_trading_platform.png",
-        title: "Advance Trading Platform",
+        title: "Human-like Volume",
         data:
-            "Our platform leverages cutting-edge technology for seamless, efficient trading. It ensures fast execution and optimal performance in all market conditions. Experience a user-friendly interface designed for traders of all levels.",
+            "We are using advanced zkMesh technology to ensure that the generated volume is as humanly as possible. Therefore, it is difficult to distinguish between a bot TX and a human TX.",
       ),
       const EasyDetailWidget(
         image: "assets/images/ai_insights.png",
-        title: "AI Insights",
+        title: "Enhanced Experience",
         data:
-            "Gain access to real-time, AI-driven market analysis for smarter decision-making. Our algorithms continuously monitor trends to identify profitable opportunities. Stay ahead with data-backed insights tailored to your trading goals.",
+            "Our bots do the hard work of identifying size of buy/sell TX, frequency, time, etc. to simply the user experience. At the same time, the options for endless customization are also available.",
       ),
       const EasyDetailWidget(
         image: "assets/images/automated_strategies.png",
-        title: "Automated Strategies",
+        title: "Gas Optimization",
         data:
-            "Automate your trades with our intelligent, customizable strategies. Our AI bot adapts to market fluctuations, optimizing trades for maximum returns. Set your preferences and let the system work for you 24/7.",
+            "Our bots are calibrated to ensure optimized volume generation with minimal loss in funds due to high gas fees. The TX size and frequency are automatically adjusted as needed 24/7.",
       )
     ];
   }
@@ -65,12 +67,13 @@ class _EasyFrameState extends State<EasyFrame> {
         child: Column(
           children: [
             Center(
-              child: dataWidget(),
+              child: FadeInListItem(child: dataWidget()),
             ),
             const SizedBox(
               height: 60,
             ),
-            _detailBoxes()
+            FadeInListItem(
+                duration: Duration(milliseconds: 700), child: _detailBoxes())
           ],
         ),
       ),

@@ -5,6 +5,8 @@ import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../widgets/FadeInListWidget.dart';
+
 class HowFrame extends StatefulWidget {
   const HowFrame({super.key});
 
@@ -18,19 +20,27 @@ class _HowFrameState extends State<HowFrame> {
   String subTitle = "AI at the core";
   String buttonText = "Get started";
   String infoText =
-      "Our market-making bot uses advanced algorithms to monitor the order book, adjust prices, and maintain liquidity. It ensures tight spreads and maximizes profit opportunities automatically.";
+      "Our market-making bot uses advanced AI to monitor the DEX transactions to adjust prices, and maintain volume. It ensures smart volume to show strength of your token.";
+
+  _getPadding() {
+    if (Responsive.isDesktop(context)) {
+      return const EdgeInsets.all(75);
+    }
+    return const EdgeInsets.symmetric(horizontal: 20, vertical: 75);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: MediaQuery.of(context).size.height,
-      padding: EdgeInsets.all(75),
+      // height: Get.height,
+      // constraints: BoxConstraints(maxHeight: 1500),
+      padding: _getPadding(),
       child: Column(
         children: [
           Center(
-            child: dataWidget(),
+            child: FadeInListItem(child: dataWidget()),
           ),
-          SizedBox(
+          const SizedBox(
             height: 75,
           ),
           Image.asset(

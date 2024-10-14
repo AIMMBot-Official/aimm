@@ -29,8 +29,9 @@ class _VideoWidgetState extends State<VideoWidget> {
           showControls: false,
           looping: true,
         );
+        _videoPlayerController.setLooping(true);
         _videoPlayerController.setVolume(0);
-        _videoPlayerController.setPlaybackSpeed(0.5);
+        // _videoPlayerController.setPlaybackSpeed(0.5);
         _videoPlayerController.play();
       });
     });

@@ -31,6 +31,7 @@ class _BannerFrameState extends State<BannerFrame> {
     return Container(
       padding: _getPadding(),
       height: MediaQuery.of(context).size.height,
+      constraints: BoxConstraints(maxHeight: 750),
       child: banner(),
     );
   }
