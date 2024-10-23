@@ -2,7 +2,6 @@ import 'package:aimm/utils/responsive.dart';
 import 'package:aimm/views/home/great_frame/great_detail_widget.dart';
 import 'package:aimm/views/home/great_frame/great_join_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class GreatFrame extends StatefulWidget {
   const GreatFrame({super.key});
@@ -15,7 +14,7 @@ class _GreatFrameState extends State<GreatFrame> {
   String title_1 = "What makes us ";
   String title_2 = "Great";
   String infoText =
-      "We deliver AI-powered volume generation that combines real-time data, automated strategies, and intelligent risk management. Our platform ensures fast execution, security, and optimized performance, making it easy to achieve your financial goals.";
+      "We deliver AI-powered market making that combines real-time data, automated strategies, and intelligent risk management. Our platform ensures fast execution, security, and optimized performance, making it easy to achieve your financial goals.";
   late List<GreatDetailWidget> widgetList;
 
   @override
@@ -24,11 +23,11 @@ class _GreatFrameState extends State<GreatFrame> {
       const GreatDetailWidget(
           title: "Dynamic Token Price",
           data:
-              "Implement adaptive strategies that automatically adjust your asset allocation based on market conditions and trends."),
+              "Integrate real-time sentiment analysis to dynamically adjust token prices, strategically increasing or decreasing trading volumes based on market sentiment."),
       const GreatDetailWidget(
         title: "Intelligent Chart Management ",
         data:
-            "Utilize AI algorithms to optimize your investment portfolio, balancing risk and reward for sustainable growth.",
+            "Utilize AI algorithms to optimize your volume production, balancing risk and reward for sustainable growth.",
         path: "assets/images/intelligent_chart_management.png",
       ),
       const GreatDetailWidget(
@@ -40,7 +39,7 @@ class _GreatFrameState extends State<GreatFrame> {
       const GreatDetailWidget(
           title: "Extended Support",
           data:
-              "Our team is building additional features to maintain support levels, range, and generate profits with our bot. Early users will have access to these services at a discount!")
+              "Our team is building additional features to maintain support levels, range, and generate profits. Early users will have access to these services at a discount!")
     ];
     super.initState();
   }
@@ -146,7 +145,7 @@ class _GreatFrameState extends State<GreatFrame> {
   }
 
   _detailsGridMobile() {
-    return Container(
+    return SizedBox(
         height: 1800,
         child: Column(
           children: [

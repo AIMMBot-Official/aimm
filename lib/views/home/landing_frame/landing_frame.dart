@@ -4,9 +4,7 @@ import 'package:aimm/widgets/FadeInListWidget.dart';
 import 'package:aimm/widgets/gradient_button.dart';
 import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/video_widget.dart';
 
 class LandingFrame extends StatefulWidget {
@@ -51,7 +49,7 @@ class _LandingFrameState extends State<LandingFrame> {
 
   _overlay() {
     return Container(
-      color: Colors.black.withOpacity(0.85),
+      color: Colors.black.withOpacity(0.80),
     );
   }
 

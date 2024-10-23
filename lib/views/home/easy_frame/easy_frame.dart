@@ -1,10 +1,6 @@
-import 'package:aimm/utils/constants.dart';
 import 'package:aimm/utils/responsive.dart';
 import 'package:aimm/views/home/easy_frame/easy_detail_widget.dart';
-import 'package:aimm/widgets/gradient_button.dart';
-import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../widgets/FadeInListWidget.dart';
 
@@ -31,19 +27,19 @@ class _EasyFrameState extends State<EasyFrame> {
         image: "assets/images/advance_trading_platform.png",
         title: "Human-like Volume",
         data:
-            "We are using advanced zkMesh technology to ensure that the generated volume is as humanly as possible. Therefore, it is difficult to distinguish between a bot TX and a human TX.",
+            "AIMM’s algorithms execute trades with random intervals, varying sizes, and multi-wallet distribution to perfectly replicate human-like trading patterns, eliminating any detectable bot behavior. By leveraging predictive optimization models, AIMM ensures seamless discreet volume.",
       ),
       const EasyDetailWidget(
         image: "assets/images/ai_insights.png",
         title: "Enhanced Experience",
         data:
-            "Our bots do the hard work of identifying size of buy/sell TX, frequency, time, etc. to simply the user experience. At the same time, the options for endless customization are also available.",
+            "AIMM delivers an enhanced automated trading experience by harnessing advanced AI models to dynamically manage trade volumes, ensuring maximum efficiency. Our predictive algorithms adapt to real-time market conditions, executing precision trades that optimize both volume and cost, giving users a seamless, high-performance market-making solution that operates around the clock.",
       ),
       const EasyDetailWidget(
         image: "assets/images/automated_strategies.png",
         title: "Gas Optimization",
         data:
-            "Our bots are calibrated to ensure optimized volume generation with minimal loss in funds due to high gas fees. The TX size and frequency are automatically adjusted as needed 24/7.",
+            "Our gas optimization leverages real-time data and machine learning to execute trades during periods of low network congestion, significantly reducing gas fees. By continuously learning from Ethereum’s gas market fluctuations, AIMM strategically times transactions for maximum cost efficiency.",
       )
     ];
   }
@@ -59,7 +55,7 @@ class _EasyFrameState extends State<EasyFrame> {
   Widget build(BuildContext context) {
     return Container(
       // height: MediaQuery.of(context).size.height * 1.4,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage("images/easy_bg.png"), fit: BoxFit.fill)),
       child: Padding(
@@ -73,7 +69,8 @@ class _EasyFrameState extends State<EasyFrame> {
               height: 60,
             ),
             FadeInListItem(
-                duration: Duration(milliseconds: 700), child: _detailBoxes())
+                duration: const Duration(milliseconds: 700),
+                child: _detailBoxes())
           ],
         ),
       ),

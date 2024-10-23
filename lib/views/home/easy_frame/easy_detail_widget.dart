@@ -1,6 +1,5 @@
 import 'package:aimm/utils/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class EasyDetailWidget extends StatefulWidget {
   const EasyDetailWidget(
@@ -26,13 +25,13 @@ class _EasyDetailWidgetState extends State<EasyDetailWidget> {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints(
-        maxHeight: 530,
+        maxHeight: 600,
       ),
       decoration: BoxDecoration(
-          border: Border.all(color: Color(0xff585874), width: 0.8),
+          border: Border.all(color: const Color(0xff585874), width: 0.8),
           borderRadius: BorderRadius.circular(19.45),
           gradient: _bgGradient),
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       child: Column(
         children: [
           Expanded(flex: 2, child: _imageWidget()),
@@ -54,6 +53,7 @@ class _EasyDetailWidgetState extends State<EasyDetailWidget> {
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               widget.title,

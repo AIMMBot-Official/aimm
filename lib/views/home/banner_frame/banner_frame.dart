@@ -31,7 +31,7 @@ class _BannerFrameState extends State<BannerFrame> {
     return Container(
       padding: _getPadding(),
       height: MediaQuery.of(context).size.height,
-      constraints: BoxConstraints(maxHeight: 750),
+      constraints: const BoxConstraints(maxHeight: 750),
       child: banner(),
     );
   }
@@ -39,16 +39,16 @@ class _BannerFrameState extends State<BannerFrame> {
   Widget banner() {
     return Container(
       decoration: BoxDecoration(
-          image:
-              DecorationImage(image: AssetImage("assets/images/grid_bg.png")),
-          gradient: LinearGradient(
+          image: const DecorationImage(
+              image: AssetImage("assets/images/grid_bg.png")),
+          gradient: const LinearGradient(
               colors: [Color(0xff02010300), Color(0xff010725)],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Color(0xff585874), width: 1)),
+          border: Border.all(color: const Color(0xff585874), width: 1)),
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 50),
+        constraints: const BoxConstraints(maxWidth: 50),
         child: Stack(
           children: [
             Align(

@@ -38,11 +38,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ])
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               AppBarMenuItem(

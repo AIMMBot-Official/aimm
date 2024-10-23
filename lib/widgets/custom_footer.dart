@@ -119,12 +119,12 @@ class _CustomFooterState extends State<CustomFooter> {
               dSize: 16,
               mSize: 16),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         for (int i = 0; i < menuItems.length; i++)
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: Text(
               menuItems[i].name,
               style: Responsive.getTextStyle(context,

@@ -1,6 +1,5 @@
 import 'package:aimm/utils/constants.dart';
 import 'package:flutter/material.dart';
-import '../utils/responsive.dart';
 
 class CustomOutlineButton extends StatelessWidget {
   final Widget child;

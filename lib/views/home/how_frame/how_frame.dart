@@ -1,9 +1,7 @@
 import 'package:aimm/utils/constants.dart';
 import 'package:aimm/utils/responsive.dart';
-import 'package:aimm/widgets/gradient_button.dart';
 import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../widgets/FadeInListWidget.dart';
 
@@ -20,7 +18,7 @@ class _HowFrameState extends State<HowFrame> {
   String subTitle = "AI at the core";
   String buttonText = "Get started";
   String infoText =
-      "Our market-making bot uses advanced AI to monitor the DEX transactions to adjust prices, and maintain volume. It ensures smart volume to show strength of your token.";
+      "Our AI-driven bot intelligently analyzes DEX transactions in real-time, dynamically adjusting prices and managing volume to enhance your token's market presence and stability.";
 
   _getPadding() {
     if (Responsive.isDesktop(context)) {

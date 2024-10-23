@@ -1,6 +1,5 @@
 import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../utils/responsive.dart';
 import '../../../widgets/gradient_button.dart';
@@ -23,10 +22,10 @@ class _GreatJoinWidgetState extends State<GreatJoinWidget> {
     return Expanded(
         flex: Responsive.isDesktop(context) ? 1 : 2,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
 
           decoration: BoxDecoration(
-              border: Border.all(color: Color(0xff252424)),
+              border: Border.all(color: const Color(0xff252424)),
               borderRadius: BorderRadius.circular(20),
               gradient: _bgGradient),
 
@@ -53,7 +52,7 @@ class _GreatJoinWidgetState extends State<GreatJoinWidget> {
                         Color(0xffFFFFFF)
                       ]),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     CustomOutlineButton(

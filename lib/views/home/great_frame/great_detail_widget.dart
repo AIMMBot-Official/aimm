@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../utils/responsive.dart';
 
@@ -26,7 +25,7 @@ class _GreatDetailWidgetState extends State<GreatDetailWidget> {
     return Expanded(
         child: Container(
       decoration: BoxDecoration(
-          border: Border.all(color: Color(0xff252424)),
+          border: Border.all(color: const Color(0xff252424)),
           borderRadius: BorderRadius.circular(20),
           gradient: _bgGradient),
 
@@ -40,12 +39,12 @@ class _GreatDetailWidgetState extends State<GreatDetailWidget> {
               ? Align(
                   alignment: Alignment.bottomRight,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         bottomRight: Radius.circular(
                             20.0)), // Adjust the radius as needed
                     child: ConstrainedBox(
                       constraints:
-                          BoxConstraints(maxHeight: 100, maxWidth: 120),
+                          const BoxConstraints(maxHeight: 100, maxWidth: 120),
                       child: Image.asset(
                         widget.path!,
                         fit: BoxFit.cover,
@@ -62,7 +61,7 @@ class _GreatDetailWidgetState extends State<GreatDetailWidget> {
 
   _textWidget() {
     return Container(
-        padding: EdgeInsets.only(left: 15, top: 15, right: 80),
+        padding: const EdgeInsets.only(left: 15, top: 15, right: 80),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

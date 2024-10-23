@@ -40,7 +40,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
               ]
             : [
                 Padding(
-                    padding: EdgeInsets.all(10), child: _launchAIMMButton()),
+                    padding: const EdgeInsets.all(10),
+                    child: _launchAIMMButton()),
               ]);
   }
 
