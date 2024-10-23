@@ -1,10 +1,13 @@
 import 'package:aimm/utils/constants.dart';
 import 'package:aimm/utils/responsive.dart';
 import 'package:aimm/widgets/FadeInListWidget.dart';
+import 'package:aimm/widgets/custom_appbar_new.dart';
 import 'package:aimm/widgets/gradient_button.dart';
 import 'package:aimm/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../../routes/app_pages.dart';
+import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/video_widget.dart';
 
 class LandingFrame extends StatefulWidget {
@@ -28,22 +31,32 @@ class _LandingFrameState extends State<LandingFrame> {
         children: [
           _bgVideo(),
           _overlay(),
-          FadeInListItem(
-              duration: const Duration(milliseconds: 1500),
-              child: dataWidget()),
+          Column(children: [
+            const CustomAppBarNew(
+              page: Routes.home,
+            ),
+            FadeInListItem(
+                duration: const Duration(milliseconds: 1500),
+                child: dataWidget())
+          ]),
         ],
       ),
     );
   }
 
   _bgVideo() {
-    return Positioned(
-        bottom: 0,
-        child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Responsive(
-                desktop: VideoWidget(videoUrl: "assets/videos/landing_bg.mp4"),
-                mobile: VideoWidget(
+    return Responsive(
+        desktop: Positioned(
+            top: 0,
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: const VideoWidget(
+                    videoUrl: "assets/videos/landing_bg.mp4"))),
+        mobile: Positioned(
+            bottom: 0,
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: const VideoWidget(
                     videoUrl: "assets/videos/landing_bg_mobile.mov"))));
   }
 

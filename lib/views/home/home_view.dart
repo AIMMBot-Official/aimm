@@ -5,12 +5,14 @@ import 'package:aimm/views/home/easy_frame/easy_frame.dart';
 import 'package:aimm/views/home/great_frame/great_frame.dart';
 import 'package:aimm/views/home/how_frame/how_frame.dart';
 import 'package:aimm/views/home/landing_frame/landing_frame.dart';
+import 'package:aimm/widgets/animated_appbar.dart';
 import 'package:aimm/widgets/custom_appbar.dart';
 import 'package:aimm/widgets/custom_drawer.dart';
 import 'package:aimm/widgets/custom_footer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../routes/app_pages.dart';
 import '../../widgets/FadeInListWidget.dart';
 
 class HomeView extends StatefulWidget {
@@ -56,7 +58,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           CustomScrollView(
             controller: _controller,
             slivers: [
-              const CustomAppBar(),
               SliverList(
                   delegate: SliverChildListDelegate([
                 const LandingFrame(),
@@ -67,7 +68,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                 const CustomFooter()
               ]))
             ],
-          )
+          ),
+          AnimatedAppbar(controller: _controller, route: Routes.home)
         ],
       ),
     );

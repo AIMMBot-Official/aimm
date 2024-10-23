@@ -112,7 +112,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   _launchAIMMButton() {
     return CustomOutlineButton(
-      padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 25),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       onPressed: () {},
       isGradient: false,
       child: Text(
@@ -128,7 +128,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   _launchAppButton() {
     return CustomOutlineButton(
-      padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 25),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       onPressed: () {},
       child: Text(
         "Launch App",

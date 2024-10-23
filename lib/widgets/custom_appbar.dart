@@ -1,7 +1,6 @@
 import 'package:aimm/widgets/appbar_menuitem.dart';
 import 'package:aimm/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../utils/responsive.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -27,6 +26,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
         toolbarHeight: Responsive.isDesktop(context) ? 80 : 60,
         centerTitle: false,
         title: Responsive(mobile: _mobileTitle(), desktop: _desktopTitle()),
+        // flexibleSpace: FlexibleSpaceBar(
+        //   background: Container(
+        //     decoration: BoxDecoration(
+        //       gradient: LinearGradient(
+        //         colors: [Colors.transparent, Colors.transparent],
+        //         begin: Alignment.topLeft,
+        //         end: Alignment.bottomRight,
+        //       ),
+        //     ),
+        //   ),
+        // ),
         actions: Responsive.isDesktop(context)
             ? [
                 _launchAIMMButton(),
